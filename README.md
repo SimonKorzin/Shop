@@ -1,2 +1,2 @@
 # Shop
-Bootstrap, JSP, AJAX,Spring(IoC,MVC,Security), Hibernate, MySQL
+Spring(IoC,MVC,Security), Hibernate, MySQL, JSP, AJAX, Bootstrap. 
