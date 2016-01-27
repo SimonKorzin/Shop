@@ -93,8 +93,8 @@
                             <div class="form-group">
                                 <div class="row">
                                 <div class="col-xs-7">
-                                    <input type="text" class="form-control" name="upperBound" placeholder="upper bound">
                                     <input type="text" class="form-control" name="lowerBound" placeholder="lower bound">
+                                    <input type="text" class="form-control" name="upperBound" placeholder="upper bound">(
                                 </div>
 
                             </div>

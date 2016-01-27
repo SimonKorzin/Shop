@@ -2,6 +2,7 @@ package com.korzin.config;
 
 import com.korzin.DAO.Impl.*;
 import com.korzin.DAO.Interf.*;
+import com.korzin.DAO.SearchDaoImpl;
 import com.korzin.services.*;
 import org.apache.commons.dbcp.BasicDataSource;
 import org.hibernate.SessionFactory;
@@ -77,7 +78,8 @@ public class AppConfig extends WebMvcConfigurerAdapter {
 	public CustomerRoleDao customerRoleDao(){ return  new CustomerRoleDaoImpl();}//CustomerRole
 	@Bean
 	public CustomerRoleService customerRoleService(){ return new CustomerRoleService();}
-
+	@Bean
+	public SearchDaoImpl searchDao(){ return new SearchDaoImpl();}
 //	@Bean
 //	public EntityManager entityManager() {
 //
@@ -108,6 +110,7 @@ public class AppConfig extends WebMvcConfigurerAdapter {
         prop.put("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
 		prop.put("hibernate.hbm2ddl.auto","update");
         return prop;
+
     }
 	
 	@Bean(name = "dataSource")

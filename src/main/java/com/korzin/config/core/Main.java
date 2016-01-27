@@ -50,6 +50,7 @@ public class Main {
         prop.put("hibernate.format_sql", "true");
         prop.put("hibernate.show_sql", "true");
         prop.put("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
+        prop.put("hibernate.hbm2ddl.auto","update");
         return prop;
     }
 
@@ -58,7 +59,7 @@ public class Main {
 
         BasicDataSource ds = new BasicDataSource();
         ds.setDriverClassName("com.mysql.jdbc.Driver");
-        ds.setUrl("jdbc:mysql://localhost:3306/shop5");
+        ds.setUrl("jdbc:mysql://localhost:3306/shop7");
         ds.setUsername("root");
         ds.setPassword("root");
         return ds;
