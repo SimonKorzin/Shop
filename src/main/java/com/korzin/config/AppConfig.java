@@ -24,7 +24,7 @@ import java.util.Properties;
 @ComponentScan({"com.korzin"})
 //@EnableTransactionManagement
 @Import({ SecurityConfig.class })
-public class AppConfig  extends WebMvcConfigurerAdapter {
+public class AppConfig extends WebMvcConfigurerAdapter {
 
 
 	@Bean
@@ -80,8 +80,9 @@ public class AppConfig  extends WebMvcConfigurerAdapter {
 
 //	@Bean
 //	public EntityManager entityManager() {
-//		EntityManagerFactory emf = Persistence.createEntityManagerFactory("shop3");
-////        System.out.println("In create em");
+//
+//		EntityManagerFactory emf = Persistence.createEntityManagerFactory("shop5");
+//        System.out.println("In create em");
 //		return emf.createEntityManager();
 //	}
 	@Override
@@ -105,6 +106,7 @@ public class AppConfig  extends WebMvcConfigurerAdapter {
         prop.put("hibernate.format_sql", "true");
         prop.put("hibernate.show_sql", "true");
         prop.put("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
+		prop.put("hibernate.hbm2ddl.auto","update");
         return prop;
     }
 	
@@ -113,7 +115,7 @@ public class AppConfig  extends WebMvcConfigurerAdapter {
 		
 		BasicDataSource ds = new BasicDataSource();
 	    ds.setDriverClassName("com.mysql.jdbc.Driver");
-		ds.setUrl("jdbc:mysql://localhost:3306/shop5");
+		ds.setUrl("jdbc:mysql://localhost:3306/shop7");
 		ds.setUsername("root");
 		ds.setPassword("root");
 		return ds;

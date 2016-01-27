@@ -33,7 +33,10 @@ public class CatalogController {
     public String listProduct(Model model) {
         model.addAttribute("products", productService.findAll());
         model.addAttribute("groups", groupsService.findAll());
-//
+        System.out.println("check this shit");
+        for(Product p: productService.findAll()){
+            System.out.print(p.getId() + " " );
+        }
         return "catalog";
     }
 //    @RequestMapping(value = "/admin", method = RequestMethod.GET)
@@ -53,8 +56,9 @@ public class CatalogController {
         return "catalog";
     }
     @RequestMapping(value = "/limits", method = RequestMethod.POST)
-    public String limits(@RequestParam(value="upperBound") double upperBound,
-                         @RequestParam(value="lowerBound") double lowerBound,Model model) {
+    public String limits(@RequestParam(value="lowerBound") double lowerBound,
+                         @RequestParam(value="upperBound") double upperBound,
+                         Model model) {
         model.addAttribute("groups", groupsService.findAll());
         System.out.println("upper = " + upperBound + " lower = " + lowerBound);
         for(Product p: productService.findByLimits(lowerBound,upperBound)){

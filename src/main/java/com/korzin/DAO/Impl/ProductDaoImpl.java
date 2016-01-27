@@ -8,7 +8,6 @@ import com.korzin.objects.Comment;
 import com.korzin.objects.Groups;
 import com.korzin.objects.Photo;
 import com.korzin.objects.Product;
-import org.hibernate.Hibernate;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
@@ -45,7 +44,9 @@ public class ProductDaoImpl extends DaoImpl<Product> implements ProductDao {
         System.out.println("In findByLimits upperBound = " + upperBound);
         try{
             session.getTransaction().begin();
-            Query query = session.createQuery("select p from Product p where p.price > 30.0 OR p.price < 1000.0");
+            String queryString = "select p from Product p where p.price > " + lowerBound + " and p.price < " + upperBound;
+            System.out.println("print restriction's query:  " + queryString );
+            Query query = session.createQuery(queryString);
 //                    .setParameter("lowerBoundPar", lowerBound).setParameter("upperBoundPar", upperBound);
             System.out.println("-!!!!!!!!!!!!!!!!!!");
             for(Product p: (List<Product>) query.list()) {
